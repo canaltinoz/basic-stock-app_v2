@@ -2,9 +2,17 @@
 
  {% block content%}  
 
-<h1>{{error_message}}</h1>
+ <div style='background-color:red;border: width 5px;;'>
+    <div style='color:white'>
+        <h1 style='font-family:"Times New Roman"'>{{error_message}}</h1>
+        <h2>Your balance is not enough for add this flavour with this quantity.</h2>
+        <h3 >You can add this flavour mostly <span style='text-decoration: underline;font-weight:bold;font-family:"Times New Roman'>{{balance}}</span> </h3>
+    </div>
+</div>
 
-<a href="/app/borrow"> Try Again </a>
+<br/><br/>
+
+<a class='btn btn-success' href="/app/add-flavour"> Try Again </a>
 
 
  {% endblock %}

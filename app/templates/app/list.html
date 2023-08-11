@@ -20,7 +20,7 @@
         <td>{{q.title}}</a></td>
         <td>{{q.genre}}</td>
         <td>{{q.quantity}}</td>
-        <td><a href="{% url 'delete' q.id %}">Delete</a></td>
+        <td><a class='btn btn-danger' href="{% url 'delete' q.id %}">Delete</a></td>
     </tr>
     </tr>
 
@@ -28,7 +28,7 @@
  </table>
 <br/><br/>
 
- <tr><td><a href="{% url 'flavour_transaction' %}">Update</a></td>
+ <td><a class='btn btn-primary' href="{% url 'flavour_transaction' %}">Update</a></td>
 
 
 {% endblock %}

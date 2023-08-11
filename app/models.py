@@ -5,6 +5,15 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     balance=models.PositiveIntegerField(default=100000)
 
+    USERNAME_FIELD='username'
+    REQUIRED_FIELDS=['email']
+    is_staff=models.BooleanField(default=True)
+    is_superuser=models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.username
+    
+
 class Flavour(models.Model):
     title=models.CharField(max_length=50)
     genre=models.CharField(max_length=20)

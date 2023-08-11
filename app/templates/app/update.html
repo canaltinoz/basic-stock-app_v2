@@ -1,18 +1,39 @@
 {% extends 'layout.html' %}
+{% load static %}
+
+{% block css_files  %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+{% endblock  %}
 
  {% block content%}  
 
 <form action="" method='POST'>
     {% csrf_token %}
-    {{form.as_p}}
+
+    <table>
+        <tr>
+            <th>Action</th>
+            <td>{{form.action}}</td>
+        </tr>
+        <tr>
+            <th>Flavour</th>        
+            <td>{{form.flavour}}</td>
+
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <td>{{form.quantity}}</td>
+        </tr>
+    </table>
+
     <br/>
 
-    <input type="submit" value='Update' class='btn btn-secondary'>
+    <input type="submit" value='Update' class='btn btn-primary'>
 
 </form> 
 
 <br/><br/>
 
-<h2>Your balance is : {{balance}} </h2>
+<h2 >Your balance is : {{balance}} </h2>
 
  {% endblock %}

@@ -23,7 +23,7 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+            user = authenticate(request,username=username, password=password)
             if user is not None:
                 login(request, user)
                 return redirect('home') 
@@ -83,7 +83,7 @@ def add_flavour(request):
             total_cost = flavour.quantity  
 
             if total_cost > user_profile.balance:
-                return render(request, 'app/error.html', {'error_message': 'Insufficient balance'})
+                return render(request, 'app/error.html', {'error_message': 'Insufficient balance','balance':user_profile.balance})
 
             flavour.save()
             user_profile.balance -= total_cost

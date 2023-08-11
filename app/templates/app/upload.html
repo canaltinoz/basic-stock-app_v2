@@ -1,4 +1,9 @@
 {% extends 'layout.html' %}
+{% load static %}
+
+{% block css_files  %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+{% endblock  %}
 
 {% block content %}
 
@@ -6,9 +11,23 @@
 <form method='POST' action="">
 {% csrf_token %}
 
-{{form.as_p}}
+<table>
+    <tr>
+        <th>Title</th>
+        <td>{{form.title}}</td>
+    </tr>
+    <tr>
+        <th>Genre</th>        
+        <td>{{form.genre}}</td>
 
-<button type='submit'>Submit</button>
+    </tr>
+    <tr>
+        <th>Quantity</th>
+        <td>{{form.quantity}}</td>
+    </tr>
+</table>
+<br/><br/   >
+<button type='submit' class='btn btn-secondary'>Submit</button>
 </form>
 
 {% endblock%}
