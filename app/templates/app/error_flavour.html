@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block content%}  
+
+
+<div class='row'>
+    <div class='col-3'>
+        <img src="{% static 'app/images/warning.png' %}" style='width:190px; height: 190px;' alt="Warning">
+    </div>
+
+    <div class='col-9' style='background-color:red;border: width 5px; float:right'>
+        <div style='color:white'>
+            <h1 style='font-family:"Times New Roman"'>{{error_message}}</h1>
+            <h2> This flavour's quantity is {{quantity}}.</h2>
+            <h3 >You can decrease this flavour quantity mostly <span style='text-decoration: underline;font-weight:bold;font-family:"Times New Roman'>{{quantity}}</span> </h3>
+        </div>
+    </div>
+</div>
+
+<br/><br/>
+
+<a class='btn btn-success' href="/app/add-flavour"> Try Again </a>
+
+
+ {% endblock %}

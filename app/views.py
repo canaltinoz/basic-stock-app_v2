@@ -51,13 +51,15 @@ def flavour_transaction(request):
 
             if action == 'decrease':
                 flavour.quantity -= quantity
+                if flavour.quantity<0:
+                    return render(request,'app/error_flavour.html',{'error_message': 'Insufficient balance','quantity':int(flavour.quantity+quantity)})
                 user_profile.balance += quantity
 
             elif action == 'increase':
                 flavour.quantity += quantity
                 user_profile.balance -= quantity
                 if user_profile.balance<0:
-                     return render(request, 'app/error.html', {'error_message': 'Insufficient balance'})
+                     return render(request, 'app/error.html', {'error_message': 'Insufficient balance','balance':int(user_profile.balance+quantity)})
 
             flavour.save()
             user_profile.save()
