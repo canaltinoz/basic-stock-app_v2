@@ -93,7 +93,8 @@ def add_flavour(request):
             return redirect('list_flavour')
     else:
         form = AddFlavourForm()
-    return render(request, 'app/upload.html', {'form': form})
+        user_profile = CustomUser.objects.get(pk=request.user.pk)
+    return render(request, 'app/upload.html', {'form': form,'balance':user_profile.balance})
 
 @login_required
 def list_flavour(request):
