@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css_files  %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+{% endblock  %}
+{% block content %}
+
+
+    <h2>Borrow Book: {{ flavour.title }}</h2>
+    <p>Available Quantity: {{ flavour.quantity }}</p>
+    <p>Your Balance: {{ user_profile.balance }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="quantity">Quantity to Borrow:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="{{ flavour.quantity }}" required>
+        <button type="submit">Borrow</button>
+    </form>
+
+
+{% endblock%}

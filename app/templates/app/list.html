@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css_files  %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+{% endblock  %}
+
+{%block content%}
+
+
+<table>
+    <tr>
+        <th>Flavour Name</th>
+        <th>Flavour Type</th>
+        <th>Total</th>
+
+    </tr>
+    {% for q in flavour %}
+    <tr>
+        <td>{{q.title}}</a></td>
+        <td>{{q.genre}}</td>
+        <td>{{q.quantity}}</td>
+        <td><a href="{% url 'delete' q.id %}">Delete</a></td>
+    </tr>
+    </tr>
+
+    {% endfor %}
+ </table>
+<br/><br/>
+
+ <tr><td><a href="{% url 'flavour_transaction' %}">Update</a></td>
+
+
+{% endblock %}
+

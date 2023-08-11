@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css_files  %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+{% endblock  %}
+{% block content %}
+
+<table>
+
+    <tr>
+        <th>Flavour Name</th>
+        <th>Flavour Variety</th>
+        <th>Flavour Total</th>
+    </tr>
+    <tr>
+        <td>{{flavour.name}}</td>
+        <td>{{flavour.variety}}</td>
+        <td>{{flavour.total}}</td>
+    
+    
+    </tr>
+</table>
+
+
+{% endblock%}

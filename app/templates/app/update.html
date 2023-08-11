@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+ {% block content%}  
+
+<form action="" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <br/>
+
+    <input type="submit" value='Update' class='btn btn-secondary'>
+
+</form> 
+
+<br/><br/>
+
+<h2>Your balance is : {{balance}} </h2>
+
+ {% endblock %}

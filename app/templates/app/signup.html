@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block page_title %} Kayıt Ol
+{% endblock %}
+
+{% block content %}
+    <form action="" method='POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+    
+{% endblock %}

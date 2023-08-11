@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block css_files  %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+{% endblock  %}
+
+{% block content %}
+<h1>USER INFORMATION</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Balance</th>
+    </tr>
+    <tr>
+        <td>{{user.username}}</a></td>
+        <td>{{user.email}}</td>
+        <td>{{user.balance}}</td>
+    </tr>
+ </table>
+
+
+{% endblock %}
