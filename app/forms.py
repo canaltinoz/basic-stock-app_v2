@@ -8,8 +8,6 @@ class SignUpForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'email', 'password')
-        
-
 
 class LoginForm(AuthenticationForm):
     remember_me = forms.BooleanField(required=False)
